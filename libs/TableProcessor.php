@@ -61,7 +61,6 @@ class TableProcessor
         } else {
             echo "Error writing data to the file.\n";
         }
-
     }
 
     public function getColumns($table): array
@@ -83,13 +82,28 @@ class TableProcessor
             $rows = [];
             $finalRows = [];
             foreach ($rowHashes as $rowHashKey => $rowHash) {
-                if (array_key_exists('row_hash', $rowHash) && !empty($rowHash['row_hash'])) {
-                    $rw = [];
-                    $rw['row_hash'] = $rowHash['row_hash'];
-                    $rows[] = $rw;
+                if (empty($rowHash['id'])) {
+                    if (count($rowHash) > 0) {
+                        $keys = array_keys($rowHash);
+
+                        if (array_key_exists('row_hash', $rowHash) && !empty($rowHash['row_hash'])) {
+                            $rw = [];
+                            $rw['row_hash'] = $rowHash['row_hash'];
+                            $rows[] = $rw;
+                        }
+
+                        $lastRow = end($rows);
+                        $finalRows[] = $table . "\\" . $keys[0] . "\\" . $rowHash[$keys[0]] . "\\" . $lastRow['row_hash'];
+                    }
+                } else {
+                    if (array_key_exists('row_hash', $rowHash) && !empty($rowHash['row_hash'])) {
+                        $rw = [];
+                        $rw['row_hash'] = $rowHash['row_hash'];
+                        $rows[] = $rw;
+                    }
+                    $lastRow = end($rows);
+                    $finalRows[] = $table . "\\" . $cols[0] . "\\" . $rowHash['id'] . "\\" . $lastRow['row_hash'];
                 }
-                $lastRow = end($rows);
-                $finalRows[] = $table . "\\" . $cols[0] . "\\" . $rowHash['id'] . "\\" . $lastRow['row_hash'];
             }
             return $finalRows;
         }
