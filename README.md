@@ -2,6 +2,8 @@
 
 This is a small tool to get to know which tables in MySQL are affected by actions in the application via database inserts, updates, and deletes. (Should work with MariaDB too, just haven't tested it.)
 
+*Dependencies: PHP 8 (PHP 7 may work?) & PDO, MySQL Database (MariaDB may work?), a database.*
+
 Update  `dbconfig.example.php` with database credentials, then change filename to `dbconfig.php`, and update the `config.php` file (make sure the directory exists for exports). Do the same with `config.example.php` => `config.php`.
 
 ** First run `php learndb.php get-tables` to update the tables for this tool to use.
