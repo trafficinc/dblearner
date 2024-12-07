@@ -36,6 +36,10 @@ class DiscoverDb
         }
     }
 
+    public function getConfig() {
+        return $this->config;
+    }
+
     public function beforeSnapshot()
     {
         $tableMatrix = $this->getRecordsCount();

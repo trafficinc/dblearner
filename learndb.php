@@ -5,7 +5,7 @@ require_once('libs/DiscoverDb.php');
 $db = new Database;
 $rc = new DiscoverDb($db);
 
-const DEBUG = false;
+$debug = $rc->getConfig()["debug"];
 
 if ($argc > 1) {
     for ($i = 1; $i < $argc; $i++) {
@@ -38,7 +38,7 @@ if ($argc > 1) {
     echo "No arguments passed.\n";
 }
 
-if (DEBUG) {
+if ($debug) {
     echo "Memory consumed: " . convert(memory_get_usage()) . "\n";
     echo "Peak usage: " . convert(memory_get_peak_usage()) . " of memory.\n";
 }
