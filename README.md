@@ -52,3 +52,5 @@ Updates found: ...
 
     Table 'mysql_config_zzc'  [UPDATE] PK Column Name:  'id'  PK Row ID: 316
 ```
+Todo: 
+[+] Feature to skip tables in scan. Maybe good for performance and un-needed tables. Maybe include/exclude in config?
