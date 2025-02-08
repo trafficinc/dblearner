@@ -57,3 +57,5 @@ Updates found: ...
 Todo:
 
 [+] Feature to skip tables in scan. Maybe good for performance and un-needed tables. Maybe include/exclude in config?
+
+[+] A Python/MySQL version?
