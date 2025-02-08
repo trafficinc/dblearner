@@ -1,4 +1,4 @@
-# Simple Tool to Learn How a MySQL Database Interacts with the Application
+# Simple Tool to Learn How a PHP/MySQL Database Interacts with the Application
 
 This is a small tool to get to know which tables in MySQL are affected by actions in the application via database inserts, updates, and deletes. (Should work with MariaDB too, just haven't tested it.)
 
